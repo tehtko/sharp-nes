@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "nqwzt6eRezlPs7l9nqUTFBFlL0FZoVk9J0GA8qA0KeVTlz/CYBpfG8NPKapa6dHs4yQrMXeOqWl4AXc83oMgHw==",
+  "dgSpecHash": "EQzyQJMWhopgc4B1j0hsY8bsHsHwg2Vq2dprT3Dvs25iBDydVAp+VdflmQ2joiNIp9kn0rEdLeGG67+6NMOC9A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Akali\\source\\repos\\sharp-nes\\sharp-nes.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Akali\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.5\\microsoft.netcore.app.ref.6.0.5.nupkg.sha512",
+    "C:\\Users\\Akali\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.5\\microsoft.windowsdesktop.app.ref.6.0.5.nupkg.sha512",
+    "C:\\Users\\Akali\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.5\\microsoft.aspnetcore.app.ref.6.0.5.nupkg.sha512",
+    "C:\\Users\\Akali\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.5\\microsoft.netcore.app.host.win-x64.6.0.5.nupkg.sha512"
+  ],
   "logs": []
 }

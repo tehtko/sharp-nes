@@ -1,10 +1,10 @@
 namespace sharp_nes.CPU
 {
-	public class CPU
+	public class C6502
 	{
 		private ALU ALU { get; set; }
 		
-		public CPU(int instruction)
+		public C6502(int instruction)
 		{
 			call(instruction);
 		}

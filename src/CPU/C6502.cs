@@ -2,18 +2,10 @@ namespace sharp_nes.CPU
 {
 	public class C6502
 	{
-		private ALU ALU { get; set; }
-		
-		public C6502(int instruction)
+		public void DoStuff()
 		{
-			call(instruction);
-		}
-		
-		public int call(int x)
-		{
-			ALU = new ALU();
-			
-			return ALU.Power(x);
+			Bus bus = new Bus();
+			Console.WriteLine("Read the value: " + bus.read(1) + " from address 0x04");	
 		}
 	}
 }

@@ -2,10 +2,15 @@ namespace sharp_nes.CPU
 {
 	public class C6502
 	{
-		public void DoStuff()
+		private Bus Bus { get; set; }
+		
+		public C6502()
 		{
-			Bus bus = new Bus();
-			Console.WriteLine("Read the value: " + bus.read(1) + " from address 0x04");	
+			Bus = new();
 		}
-	}
+		
+		void read(ushort addr) { Bus.read(addr); }
+		
+		void write(ushort addr, byte data) { Bus.write(addr, data); }
+	}	
 }

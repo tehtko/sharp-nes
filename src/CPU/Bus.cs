@@ -18,7 +18,10 @@ namespace sharp_nes.CPU
 		
 		public byte read(ushort addr)
 		{
-			return 10;
+			if(addr>=0x0000 && <= 0xFFFF)
+				return RAM[addr];
+				
+			return 0x00;
 		}
 	}
 }

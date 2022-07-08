@@ -5,10 +5,6 @@ namespace sharp_nes.CPU
 		private C6502 CPU { get; set; }
 		private byte[] RAM = new byte[64 * 1024];
 		
-		private byte A = 0;
-		private byte X = 0;
-		private byte Y = 0;
-		
 		public Bus()
 		{
 			CPU = new();

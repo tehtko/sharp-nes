@@ -4,6 +4,10 @@ namespace sharp_nes.CPU
 	{
 		private Bus Bus { get; set; }
 		
+		private byte A = 0;
+		private byte X = 0;
+		private byte Y = 0;
+		
 		public C6502()
 		{
 			Bus = new();

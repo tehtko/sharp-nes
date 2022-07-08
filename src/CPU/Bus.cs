@@ -13,7 +13,7 @@ namespace sharp_nes.CPU
 		
 		public void write(ushort addr, byte data)
 		{
-			
+			RAM[addr] = data;
 		}
 		
 		public byte read(ushort addr)

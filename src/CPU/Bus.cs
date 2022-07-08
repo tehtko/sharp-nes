@@ -13,7 +13,7 @@ namespace sharp_nes.CPU
 		
 		public void write(ushort addr, byte data)
 		{
-			if(addr>=0x0000 && <= 0xFFFF)
+			if(addr>=0x0000 && addr<= 0xFFFF)
 				RAM[addr] = data;
 		}
 		

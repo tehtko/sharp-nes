@@ -29,5 +29,20 @@ namespace sharp_nes.CPU
 		void write(ushort addr, byte data) { Bus.write(addr, data); }
 		
 		void read(ushort addr) { Bus.read(addr); }
+		
+		void IRQ()
+		{
+			
+		}
+		
+		void NMI()
+		{
+			
+		}
+		
+		void RESET()
+		{
+			
+		}
 	}
 }

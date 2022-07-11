@@ -75,5 +75,32 @@ namespace sharp_nes.CPU
 		{
 			
 		}
+		
+        // Addressing Modes
+        byte IMP() { return 0; }	byte IMM() { return 0; }	
+        byte ZP0() { return 0; }	byte ZPX() { return 0; }	
+        byte ZPY() { return 0; }	byte REL() { return 0; }
+        byte ABS() { return 0; }	byte ABX() { return 0; }	
+        byte ABY() { return 0; }	byte IND() { return 0; }	
+        byte IZX() { return 0; }	byte IZY() { return 0; }
+        
+        // Opcodes
+        byte ADC() { return 0; }	byte AND() { return 0; }	byte ASL() { return 0; }	byte BCC() { return 0; }
+        byte BCS() { return 0; }	byte BEQ() { return 0; }	byte BIT() { return 0; }	byte BMI() { return 0; }
+        byte BNE() { return 0; }	byte BPL() { return 0; }	byte BRK() { return 0; }	byte BVC() { return 0; }
+        byte BVS() { return 0; }	byte CLC() { return 0; }	byte CLD() { return 0; }	byte CLI() { return 0; }
+        byte CLV() { return 0; }	byte CMP() { return 0; }	byte CPX() { return 0; }	byte CPY() { return 0; }
+        byte DEC() { return 0; }	byte DEX() { return 0; }	byte DEY() { return 0; }	byte EOR() { return 0; }
+        byte INC() { return 0; }	byte INX() { return 0; }	byte INY() { return 0; }	byte JMP() { return 0; }
+        byte JSR() { return 0; }	byte LDA() { return 0; }	byte LDX() { return 0; }	byte LDY() { return 0; }
+        byte LSR() { return 0; }	byte NOP() { return 0; }	byte ORA() { return 0; }	byte PHA() { return 0; }
+        byte PHP() { return 0; }	byte PLA() { return 0; }	byte PLP() { return 0; }	byte ROL() { return 0; }
+        byte ROR() { return 0; }	byte RTI() { return 0; }	byte RTS() { return 0; }	byte SBC() { return 0; }
+        byte SEC() { return 0; }	byte SED() { return 0; }	byte SEI() { return 0; }	byte STA() { return 0; }
+        byte STX() { return 0; }	byte STY() { return 0; }	byte TAX() { return 0; }	byte TAY() { return 0; }
+        byte TSX() { return 0; }	byte TXA() { return 0; }	byte TXS() { return 0; }	byte TYA() { return 0; }
+        
+        // Illegal Opcode caught here
+        byte XXX() { return 0; }
 	}
 }

@@ -1,6 +1,6 @@
 namespace sharp_nes.CPU
 {
-	public class C6502
+	public unsafe class C6502
 	{
 		private byte   A         = 0x00;   // Accumulator Register
 		private byte   X         = 0x00;   // X Register
@@ -20,9 +20,11 @@ namespace sharp_nes.CPU
 					
 		private Bus Bus { get; set; }
 		
-		internal struct INSTRUCTION
+		struct INSTRUCTION
 		{
 			char[] opcode = new char[3];
+			delegate* <byte> op_mode = null;
+			delegate* <byte> addr_mode = null;
 			byte cycles = 0x00;
 			public INSTRUCTION() {}
 		}

@@ -2,6 +2,9 @@ namespace sharp_nes.CPU
 {
 	public unsafe class C6502
 	{
+	
+#pragma warning disable CS0414 // disable unused variable warning
+
 		private byte   A         = 0x00;   // Accumulator Register
 		private byte   X         = 0x00;   // X Register
 		private byte   Y         = 0x00;   // Y Register

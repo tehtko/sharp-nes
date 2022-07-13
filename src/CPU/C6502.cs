@@ -32,7 +32,7 @@ namespace sharp_nes.CPU
 			public INSTRUCTION() {}
 		}
 		
-		INSTRUCTION[] table = new INSTRUCTION[256];
+		INSTRUCTION[] table = new INSTRUCTION[70];
 		
 		public C6502()
 		{
@@ -106,6 +106,6 @@ namespace sharp_nes.CPU
         byte TSX() { return 0; }	byte TXA() { return 0; }	byte TXS() { return 0; }	byte TYA() { return 0; }
         
         // Illegal Opcode caught here
-        byte XXX() { return 0; }
+        byte XXX() { return 0; } byte ZZZ() { return 0; }
 	}
 }

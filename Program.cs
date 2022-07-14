@@ -7,7 +7,7 @@ namespace sharp_nes
     {
         static void Main()
         {
-                                             
+            C6502 CPU = new();                                     
         } 
     }       
 }

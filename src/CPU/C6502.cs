@@ -2,8 +2,7 @@ namespace sharp_nes.CPU
 {
 	public unsafe class C6502
 	{
-	
-#pragma warning disable CS0414 // disable unused variable warning
+#pragma warning disable CS0414 // unused variable warning
 
 		private byte   A         = 0x00;   // Accumulator Register
 		private byte   X         = 0x00;   // X Register
@@ -22,23 +21,13 @@ namespace sharp_nes.CPU
 		private byte clock_count = 0;      // Total number of clocks
 				
 		private Bus Bus { get; set; }
-		
-		struct INSTRUCTION
-		{
-			char[] opcode = new char[3];
-			delegate* <byte> op_mode = null;
-			delegate* <byte> addr_mode = null;
-			byte cycles = 0x00;
-			public INSTRUCTION() {}
-		}
-		
-		INSTRUCTION[] table = new INSTRUCTION[256];
-		
-		using cpu = new C6502;
-		
+		private Instruction[] instructions { get; set; }			
+								
 		public C6502()
 		{
 			Bus = new();
+			instructions = new Instruction[1];
+			instructions[0] = new Instruction { opcode = "BRK", op_mode = &BRK, addr_mode = &IMM, cycles = 7 };
 		}
 		
 		[Flags]
@@ -53,7 +42,7 @@ namespace sharp_nes.CPU
 			V = (1 << 6), // Overflow
 			N = (1 << 7)  // Negative
 		};
-		
+	
 		void write(ushort addr, byte data) { Bus.write(addr, data); }
 		
 		void read(ushort addr) { Bus.read(addr); }
@@ -84,30 +73,30 @@ namespace sharp_nes.CPU
 		}
 		
         // Addressing Modes
-        byte IMP() { return 0; }	byte IMM() { return 0; }	
-        byte ZP0() { return 0; }	byte ZPX() { return 0; }	
-        byte ZPY() { return 0; }	byte REL() { return 0; }
-        byte ABS() { return 0; }	byte ABX() { return 0; }	
-        byte ABY() { return 0; }	byte IND() { return 0; }	
-        byte IZX() { return 0; }	byte IZY() { return 0; }
+        static byte IMP() { return 0; }	static byte IMM() { return 0; }	
+        static byte ZP0() { return 0; }	static byte ZPX() { return 0; }	
+        static byte ZPY() { return 0; }	static byte REL() { return 0; }
+        static byte ABS() { return 0; }	static byte ABX() { return 0; }	
+        static byte ABY() { return 0; }	static byte IND() { return 0; }	
+        static byte IZX() { return 0; }	static byte IZY() { return 0; }
         
         // Opcodes
-        byte ADC() { return 0; }	byte AND() { return 0; }	byte ASL() { return 0; }	byte BCC() { return 0; }
-        byte BCS() { return 0; }	byte BEQ() { return 0; }	byte BIT() { return 0; }	byte BMI() { return 0; }
-        byte BNE() { return 0; }	byte BPL() { return 0; }	byte BRK() { return 0; }	byte BVC() { return 0; }
-        byte BVS() { return 0; }	byte CLC() { return 0; }	byte CLD() { return 0; }	byte CLI() { return 0; }
-        byte CLV() { return 0; }	byte CMP() { return 0; }	byte CPX() { return 0; }	byte CPY() { return 0; }
-        byte DEC() { return 0; }	byte DEX() { return 0; }	byte DEY() { return 0; }	byte EOR() { return 0; }
-        byte INC() { return 0; }	byte INX() { return 0; }	byte INY() { return 0; }	byte JMP() { return 0; }
-        byte JSR() { return 0; }	byte LDA() { return 0; }	byte LDX() { return 0; }	byte LDY() { return 0; }
-        byte LSR() { return 0; }	byte NOP() { return 0; }	byte ORA() { return 0; }	byte PHA() { return 0; }
-        byte PHP() { return 0; }	byte PLA() { return 0; }	byte PLP() { return 0; }	byte ROL() { return 0; }
-        byte ROR() { return 0; }	byte RTI() { return 0; }	byte RTS() { return 0; }	byte SBC() { return 0; }
-        byte SEC() { return 0; }	byte SED() { return 0; }	byte SEI() { return 0; }	byte STA() { return 0; }
-        byte STX() { return 0; }	byte STY() { return 0; }	byte TAX() { return 0; }	byte TAY() { return 0; }
-        byte TSX() { return 0; }	byte TXA() { return 0; }	byte TXS() { return 0; }	byte TYA() { return 0; }
+        static byte ADC() { return 0; }	static byte AND() { return 0; }	static byte ASL() { return 0; }	static byte BCC() { return 0; }
+        static byte BCS() { return 0; }	static byte BEQ() { return 0; }	static byte BIT() { return 0; }	static byte BMI() { return 0; }
+        static byte BNE() { return 0; }	static byte BPL() { return 0; }	static byte BRK() { return 0; }	static byte BVC() { return 0; }
+        static byte BVS() { return 0; }	static byte CLC() { return 0; }	static byte CLD() { return 0; }	static byte CLI() { return 0; }
+        static byte CLV() { return 0; }	static byte CMP() { return 0; }	static byte CPX() { return 0; }	static byte CPY() { return 0; }
+        static byte DEC() { return 0; }	static byte DEX() { return 0; }	static byte DEY() { return 0; }	static byte EOR() { return 0; }
+        static byte INC() { return 0; }	static byte INX() { return 0; }	static byte INY() { return 0; }	static byte JMP() { return 0; }
+        static byte JSR() { return 0; }	static byte LDA() { return 0; }	static byte LDX() { return 0; }	static byte LDY() { return 0; }
+        static byte LSR() { return 0; }	static byte NOP() { return 0; }	static byte ORA() { return 0; }	static byte PHA() { return 0; }
+        static byte PHP() { return 0; }	static byte PLA() { return 0; }	static byte PLP() { return 0; }	static byte ROL() { return 0; }
+        static byte ROR() { return 0; }	static byte RTI() { return 0; }	static byte RTS() { return 0; }	static byte SBC() { return 0; }
+        static byte SEC() { return 0; }	static byte SED() { return 0; }	static byte SEI() { return 0; }	static byte STA() { return 0; }
+        static byte STX() { return 0; }	static byte STY() { return 0; }	static byte TAX() { return 0; }	static byte TAY() { return 0; }
+        static byte TSX() { return 0; }	static byte TXA() { return 0; }	static byte TXS() { return 0; }	static byte TYA() { return 0; }
         
         // Illegal Opcode caught here
-        byte XXX() { return 0; } byte ZZZ() { return 0; }
+        static byte XXX() { return 0; } static byte ZZZ() { return 0; }
 	}
 }

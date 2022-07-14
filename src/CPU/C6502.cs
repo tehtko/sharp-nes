@@ -20,7 +20,7 @@ namespace sharp_nes.CPU
 		private byte opcode      = 0x00;   // The instruction byte
 		private byte cycles      = 0;	   // Total number of remaining cycles per instrction
 		private byte clock_count = 0;      // Total number of clocks
-					
+				
 		private Bus Bus { get; set; }
 		
 		struct INSTRUCTION
@@ -32,7 +32,9 @@ namespace sharp_nes.CPU
 			public INSTRUCTION() {}
 		}
 		
-		INSTRUCTION[] table = new INSTRUCTION[70];
+		INSTRUCTION[] table = new INSTRUCTION[256];
+		
+		using cpu = new C6502;
 		
 		public C6502()
 		{

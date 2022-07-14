@@ -26,8 +26,11 @@ namespace sharp_nes.CPU
 		public C6502()
 		{
 			Bus = new();
-			instructions = new Instruction[1];
-			instructions[0] = new Instruction { opcode = "BRK", op_mode = &BRK, addr_mode = &IMM, cycles = 7 };
+			instructions = new Instruction[256];
+			for(int i=0;i<256;i++)
+			{
+				instructions[i] = new Instruction { opcode = "BRK", op_mode = &BRK, addr_mode = &IMM, cycles = 7 };
+			}
 		}
 		
 		[Flags]
